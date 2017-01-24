@@ -11,7 +11,7 @@ class ContactSection extends React.Component {
     super(props, context);
 
     this.state = {
-      message: Object.assign({}, this.props.message),
+      message: Object.assign({}, this.props.mail),
       errors: {},
       saving: false,
     };
@@ -75,7 +75,7 @@ class ContactSection extends React.Component {
       <section className="o-wrapper c-contact">
         <div className="o-layout">
           <div className="o-layout__item u-1/1">
-          <span>{this.props.message.name} {this.props.message.email} {this.props.message.message}</span> 
+          <span>{this.props.mail.name} {this.props.mail.email} {this.props.mail.message}</span> 
 
             <ContactForm
               onChange={this.updateMessageState}
@@ -92,14 +92,14 @@ class ContactSection extends React.Component {
 }
 
 ContactSection.propTypes = {
-  message: PropTypes.object.isRequired,
+  mail: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired,
 }
 
 function mapStateToProps(state) {
   console.log('contactSection.jsx mapStateToProps', state)
   return {
-    message: state.message,
+    mail: state.formValues,
   };
 }
 
