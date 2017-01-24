@@ -15,11 +15,11 @@ export default function contactForm(state = initialState, action) {
           message: '',
       };
     case types.FORM_SUBMIT_SUCCESS:
-      // return Object.assign({}, state.message, action.message);
-      return {
-        ...state,
-        message: action.message
-      }
+      return Object.assign({}, action.message);
+      // return {
+      //   ...state,
+      //   message: action.message
+      // }
     default:
       return state;
   }

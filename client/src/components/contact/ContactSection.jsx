@@ -104,7 +104,7 @@ ContactSection.propTypes = {
 }
 
 function mapStateToProps(state) {
-  console.log('mappy', state)
+  console.log('contactSection.jsx mapStateToProps', state)
   return {
     message: state.message,
   };

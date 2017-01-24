@@ -1,6 +1,4 @@
 import React, { PropTypes } from 'react';
-import Header from './common/header/Header';
-import Footer from './common/footer/Footer';
 
 import ContactSection from './contact/ContactSection';
 
@@ -16,7 +14,6 @@ class Layout extends React.Component {
           {this.props.children}
         </main>
         <ContactSection />
-        
       </div>
     );
   }

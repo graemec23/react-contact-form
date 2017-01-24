@@ -15,8 +15,7 @@ export function saveMessage(message) {
     dispatch(beginAjaxCall());
     return messageApi.saveMessage(message)
     .then(() => {
-      // dispatch(messageSuccess(message));
-      dispatch(resetForm());
+      dispatch(messageSuccess(message));
     }).catch((error) => {
       console.log('error', error);
       dispatch(ajaxCallError(error));
