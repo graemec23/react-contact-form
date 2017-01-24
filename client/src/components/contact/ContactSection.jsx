@@ -14,8 +14,6 @@ class ContactSection extends React.Component {
       message: Object.assign({}, this.props.message),
       errors: {},
       saving: false,
-      showForm: true,
-      recaptchaVerified: false,
     };
 
     this.submitForm = this.submitForm.bind(this);
@@ -62,7 +60,6 @@ class ContactSection extends React.Component {
     this.setState({ saving: true });
     this.props.actions.saveMessage(this.state.message)
     .then(() => {
-      this.props.actions.resetForm();
       this.setState({ saving: false });
     })
     .catch((error) => {
@@ -77,21 +74,17 @@ class ContactSection extends React.Component {
     return (
       <section className="o-wrapper c-contact">
         <div className="o-layout">
-          <div className="o-layout__item u-1/1"> 
-          
+          <div className="o-layout__item u-1/1">
           <span>{this.props.message.name} {this.props.message.email} {this.props.message.message}</span> 
 
-            { this.state.showForm && <ContactForm
+            <ContactForm
               onChange={this.updateMessageState}
               onSubmit={this.submitForm}
               message={this.state.message}
               errors={this.state.errors}
               saving={this.state.saving}
-
-            />}
-
+            />
           </div>
-
         </div>
       </section>
     );
