@@ -20,6 +20,11 @@ class ContactSection extends React.Component {
     this.updateMessageState = this.updateMessageState.bind(this);
     this.verifyCallback = this.verifyCallback.bind(this);
   }
+  
+  
+  componentWillReceiveProps(nextProps) {
+    this.setState({ message: nextProps.mail })
+  }
 
   updateMessageState(event) {
     const field = event.target.name;
@@ -75,8 +80,7 @@ class ContactSection extends React.Component {
       <section className="o-wrapper c-contact">
         <div className="o-layout">
           <div className="o-layout__item u-1/1">
-          <span>{this.props.mail.name} {this.props.mail.email} {this.props.mail.message}</span> 
-
+            
             <ContactForm
               onChange={this.updateMessageState}
               onSubmit={this.submitForm}
@@ -84,6 +88,7 @@ class ContactSection extends React.Component {
               errors={this.state.errors}
               saving={this.state.saving}
             />
+            <span>{this.props.mail.name}</span>
           </div>
         </div>
       </section>

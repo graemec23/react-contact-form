@@ -8,17 +8,11 @@ const initialState = {
 export default function contactForm(state = initialState, action) {
   switch (action.type) {
     case types.FORM_RESET:
-      return {
-        ...state,
-          name: '',
-          email: '',
-          message: '',
-      };
+      return initialState;
     case types.FORM_SUBMIT_SUCCESS:
-      // return Object.assign({}, action.message);
       return {
-        ...state,
-        mail: action.message };
+        ...state, ...action.payload
+      }
     default:
       return state;
   }

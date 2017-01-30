@@ -16,10 +16,17 @@ export function saveMessage(message) {
     return messageApi.saveMessage(message)
     .then(() => {
       dispatch(messageSuccess(message));
+      dispatch(resetForm());
     }).catch((error) => {
       console.log('error', error);
       dispatch(ajaxCallError(error));
       throw (error);
     });
+  };
+}
+
+export function clearForm() {
+  return function (dispatch) {
+    dispatch(resetForm());
   };
 }
